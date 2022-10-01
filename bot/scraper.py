@@ -33,5 +33,6 @@ class Bot(webdriver.Chrome):
         showTranscript.click()
 
     def get_transcript(self):
-        transcript = self.find_element(By.CSS_SELECTOR, 'div[id="segments-container"]')
-        print(transcript.text)
+        transcript = self.find_elements(By.CSS_SELECTOR, 'yt-formatted-string[class="segment-text style-scope ytd-transcript-segment-renderer"]')
+        for line in transcript:
+            print(line.text)
